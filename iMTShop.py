@@ -24,8 +24,8 @@ mt_r = 'clips_OlU6TmFRag5rCXwbNAQ/Tz1SKlN8THcecBp/'
 # res_map = {'10213': '贵州茅台酒（癸卯兔年）', '2476': '贵州茅台酒（壬寅虎年）', '2478': '贵州茅台酒（珍品）',
 # '10214': '贵州茅台酒（癸卯兔年）x2'}
 # 下面定义的是申请哪几个，想申请全部的话把上面注释删掉，把下面的注释掉
-res_map = {'10213': '贵州茅台酒（癸卯兔年）', '2478': '贵州茅台酒（珍品）',
-           '10214': '贵州茅台酒（癸卯兔年）x2'}
+res_map = {'10941': '贵州茅台酒（甲辰龙年）', 
+           '10942': '贵州茅台酒（甲辰龙年）x2'}
 
 
 def mt_add(itemId, shopId, sessionId, userId, token, Device_ID):
@@ -119,6 +119,7 @@ def get_shop_item(sessionId, itemId, device_id, token, province, city):
         if not shop.get('shopId') in shop_id_:
             continue
         if itemId in str(shop):
+            print("itemId:",itemId,"shopId:",shop.get('shopId'))
             return shop.get('shopId')
 
 
@@ -273,6 +274,7 @@ if __name__ == '__main__':
     if len(mt_token_list) > 0:
         for mt_token in mt_token_list:
             userCount += 1
+            print("mt_token:",mt_token)
             province, city, lng, lat, device_id, token, ck = mt_token.split(
                 ',')
             time_keys = str(
